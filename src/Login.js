@@ -79,7 +79,8 @@ export default function SignIn ({changeScreen}) {
             color="primary"
             className={classes.submit}
             onClick={() => {
-              changeScreen()
+              if(document.getElementById('email').value == "baileywaldorf@gmail.com") changeScreen(true)
+              else changeScreen(false)
             }}
           >
             Sign In

@@ -21,14 +21,8 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
   },
   layout: {
-    width: 'auto',
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
-      width: 600,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
   },
   paper: {
     marginTop: theme.spacing(3),
@@ -41,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   stepper: {
-    padding: theme.spacing(3, 0, 5),
+    padding: theme.spacing(2, 0, 4),
   },
   buttons: {
     display: 'flex',
@@ -85,7 +79,6 @@ export default function Checkout() {
         display="flex"
         alignItems="center"
         justifyContent="center"
-        width="600px"
       >
         <img src={Logo} alt="Logo" width="50%" style={{paddingBottom: "10px", paddingTop: "10px"}}/>
       </Box>

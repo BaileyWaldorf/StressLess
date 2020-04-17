@@ -6,6 +6,7 @@ import Link from '@material-ui/core/Link';
 import ProTip from './ProTip';
 import Login from './Login';
 import MainPage from './MainPage';
+import Admin from './Admin';
 
 function Copyright() {
   return (
@@ -23,19 +24,31 @@ function Copyright() {
 export default function App() {
 
   const [screen, showScreen] = useState(false);
+  const [ad, showAdmin] = useState(false);
 
-  function changeScreen() {
-    console.log("clicked")
-    showScreen(true);
+  function changeScreen(admin) {
+    if(admin)
+      showAdmin(true)
+    else
+      showScreen(true);
+  }
+
+  const screens = () => {
+    if (screen) return <MainPage />
+    else if (ad) return <Admin />
+    return <Login changeScreen={changeScreen}/>
+  }
+
+  const width = () => {
+    if(screen)return "sm";
+    else if(ad) return "lg";
+    return "sm";
   }
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth={width()}>
       <Box my={4}>
-        {screen
-          ? <MainPage />
-          : <Login changeScreen={changeScreen}/>
-        }
+        {screens()}
         {/* <Typography variant="h4" component="h1" gutterBottom>
           Create React App v4-beta example
         </Typography> */}
